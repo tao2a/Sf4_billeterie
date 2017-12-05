@@ -1,0 +1,32 @@
+#config/doctrine/#config/doctrine/Visit.orm.yml
+App\Entity\Visit
+    type: entity
+
+    #Clé primaire
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+
+    #Colonnes de la Table
+    fields:
+        visitDate:
+            type: date
+
+        alfDay:
+            type: boolean
+            default: false
+
+        email:
+            type: string
+            lenght: 255
+            unique: false
+
+
+    #Relation de type OneToMany
+    oneToMany:
+        tickets:
+        targetEntity: App\Entity\Ticket
+        mappedBy: visit
+

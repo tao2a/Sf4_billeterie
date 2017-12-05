@@ -1,0 +1,30 @@
+{# src/AppBundle/templates/booking/ticket.html.twig #}
+
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+    <h1>Listes des Tickets</h1>
+    <ul>
+    {% for ticket in visit.tickets %}
+
+        <li>Date de la visite : {{ visit.visitDate }}</li>
+        <li{% if visit.alfDay %}>
+            Durée : Demi-Journée (à partir de 14h)
+            {% else %}
+                Durée : Journée entière
+            {% endif %}
+        </li>
+        <li>Email : {{ visit.email }}</li>
+        <li>{{ ticket.civilities }} {{ ticket.name }} {{ ticket.firstName }}</li>
+        <li>Date de visite: {{ visit.visitDate }}</li>
+        <li>Date de visite: {{ visit.visitDate }}</li>
+        <li>Date de visite: {{ visit.visitDate }}</li>
+        <li>Date de visite: {{ visit.visitDate }}</li>
+        <li>Date de visite: {{ visit.visitDate }}</li>
+
+
+
+
+        </ul>
+        {% endblock %}

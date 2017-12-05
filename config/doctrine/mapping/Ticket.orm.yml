@@ -1,0 +1,39 @@
+#config/doctrine/Ticket.orm.yml
+App\Entity\Ticket:
+    type: entity
+
+    #Clé Primaire
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+
+    #colonne de la Table
+    fields:
+        civilities:
+            type: string
+            lenght: 3
+
+        name:
+            type: string
+            lenght: 255
+
+        firstName:
+            type: string
+            lenght: 255
+
+        birthDate:
+            type: date
+
+        country:
+            type: string
+            lenght: 255
+
+    manyToOne:
+        visit:
+        targetEntity: Visit
+        inversedBy: tickets
+        joinColumn:
+            name: visit_id
+            referencedColumnName: id
