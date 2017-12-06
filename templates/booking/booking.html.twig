@@ -17,10 +17,8 @@
             {{ form_row(form.country,  {'attr': {'class': 'place', 'placeholder': "Pays" }}) }}
 
         </div>
-        <input type="submit" value="Create"
-               class="btn btn-default pull-right" />
+
     </div>
-    <input type="submit" value="Validez vos tickets" class="btn btn-primary">
 {% endblock %}
 
 {% block body %}
@@ -70,37 +68,38 @@
 
     <hr/>
 
-
+    <div class="container">
     <h2>Commande de billet</h2>
+    {{ form_start(form, {'attr': {'class': ''}}) }}
+
+    {{ form_errors(form) }}
+
+    <div class="form-group">
 
 
-    {% block _visit_entry_row %}
-        <div class="container">
-        <div class="form-row align-items-center" >
+        {{ form_widget(form.visitDate,  {'attr': {'class': 'datepicker', 'placeholder': "Date de la visite" }}) }}
+        {{ form_errors(form.visitDate) }}
 
 
-        {{ form_row(form.visitDate,  {'attr': {'class': 'datepicker', 'placeholder': "Date de la visite" }}) }}
-
-        {{ form_row(form.visitDate, {'attr': {'class': 'datepicker'}}) }}
-
-        {{ form_row(form.alfDay,  {'attr': {'class': 'place', 'label': "Demi-journée" }}) }}
-
-        {{ form_row(form.alfDay, {'attr': {'class': 'field'}}) }}
-
-        {{ form_row(form.email,  {'attr': {'class': 'place', 'placeholder': "Email" }}) }}
-
-            <input type="submit" value="Create"
-                   class="btn btn-default pull-right" />
-
-        </div>
-
-        </div>
-
-    {% endblock %}
+        {{ form_widget(form.visitDate, {'attr': {'class': 'datepicker'}}) }}
 
 
+        {{ form_label(form.alfDay, "Demi-journée") }}
+
+        {{ form_widget(form.alfDay,  {'attr': {'class': 'place', 'label': "Demi-journée" }}) }}
+        {{ form_errors(form.alfDay) }}
 
 
+        {{ form_widget(form.alfDay, {'attr': {'class': 'field'}}) }}
+
+        {{ form_widget(form.email,  {'attr': {'class': 'place', 'placeholder': "Email" }}) }}
+        {{ form_errors(form.email) }}
+
+
+        {{ form_widget(form.email, {'attr': {'class': 'field'}}) }}
+
+
+    </div>
 
 
 
@@ -163,14 +162,14 @@
 
         {#{{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}#}
         {#<input type="submit" value="Suivant" class="btn btn-primary">#}
-
+        {#<input type="submit" value="Validez vos tickets" class="btn btn-primary">#}
 
         {{ form_rest(form) }}
 
+        <input type="submit" value="Validez vos tickets" class="btn btn-primary">
 
 
         {{ form_end(form) }}
-
         <br>
 
 

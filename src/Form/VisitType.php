@@ -17,11 +17,11 @@ class VisitType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('visitDate', DateType::class, array(
-        'widget'=>'single_text',
-                'html5'=>false,
-                'attr'=>array('class'=>'datepicker'),
-    ))
+            ->add('visitDate', DateType::class, array('format' => 'dd-MM-yyyy',
+                'widget' => 'single_text',
+                'html5' => false,
+                'attr' => array('class' => 'datepicker'),
+            ))
             ->add('alfDay', CheckboxType::class, array('required' => false))
             ->add('email', EmailType::class)
             ->add('tickets', CollectionType::class, array(

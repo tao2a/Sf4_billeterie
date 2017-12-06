@@ -26,15 +26,16 @@ class TicketType extends AbstractType
     {
         $builder
             ->add('civilities', ChoiceType::class, array(
-                'choices'  => array(
+                'choices' => array(
                     'Mme' => null,
                     'Mr' => true,
                 )))
             ->add('name', TextType::class)
             ->add('firstName', TextType::class)
-            ->add('birthDate', DateType::class, array(
-                'widget'=>'single_text',
-                'html5'=>false,
+            ->add('birthDate', DateType::class, array('format' => 'dd-MM-yyyy',
+                'widget' => 'single_text',
+                'html5' => false,
+
             ))
             ->add('specialRate', CheckboxType::class, array('required' => false))
             ->add('country', CountryType::class, array());
