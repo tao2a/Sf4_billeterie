@@ -188,19 +188,27 @@
 }
 
 .place{
-    outline: none;
-    border: none;
-    width: 100%;
-    background-color: transparent;
-    border-bottom: 1px solid rgb(6, 6, 6);
-    color: rgb(6, 6, 6);
-    font-size: 12px;
-    font-family: Courier, monospace;
-    height: auto;
-    font-weight: bold;
-    margin-bottom: 25px;
-    margin-top: 25px;
+
+    display:block;
+    width:100%;
+    height:34px;
+    padding:6px 12px;
+    font-size:14px;
+    line-height:1.42857143;
+    color:#555;
+    background-color:#fff;
+    background-image:none;
+    border:1px solid #ccc;
+    border-radius:4px;
+    -webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow:inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition:border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
+
+
+
 
 button{
 
@@ -267,5 +275,19 @@ h1{
 h2{
     text-align: center;
 }
+
+    form{
+        background: #021725;
+    }
+    input, textarea, select, option{
+        background: none !important;
+        border-top: #FFCC33 1px solid !important;
+        border-left: #FFCC33 1px solid !important;
+        border-bottom: #FFCC33 3px solid !important;
+        border-right: #FFCC33 3px solid !important;
+        border-radius: 2px !important;
+        color: #FFCC33 !important;
+    }
+
 }
 

@@ -32,7 +32,10 @@ class TicketType extends AbstractType
                 )))
             ->add('name', TextType::class)
             ->add('firstName', TextType::class)
-            ->add('birthDate', DateType::class)
+            ->add('birthDate', DateType::class, array(
+                'widget'=>'single_text',
+                'html5'=>false,
+            ))
             ->add('specialRate', CheckboxType::class, array('required' => false))
             ->add('country', CountryType::class, array());
     }

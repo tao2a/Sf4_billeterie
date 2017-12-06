@@ -6,19 +6,21 @@
 
 {% block _visit_tickets_entry_row %}
     <div class="container">
-        <div class="form-row align-items-center" style="background-color: #c0c9cd; padding: 50px; color: #ffffff">
+        <div class="form-row align-items-center" >
             {{ form_row(form.civilities,  {'label': 'civilité','attr': {'class': 'place', 'placeholder': "Date de la visite" }}) }}
 
             {{ form_row(form.name,  {'attr': {'class': 'place', 'placeholder': "Nom" }}) }}
             {{ form_row(form.firstName,  {'attr': {'class': 'place', 'placeholder': "Prénom" }}) }}
 
-            {{ form_row(form.birthDate,  {'attr': {'class': 'place', 'placeholder': "Date de naissance" }}) }}
+            {{ form_row(form.birthDate,  {'attr': {'class': 'datepicker', 'placeholder': "Date de naissance" }}) }}
             {{ form_row(form.specialRate,  {'attr': {'class': 'place', 'placeholder': "Tarif spécial" }}) }}
             {{ form_row(form.country,  {'attr': {'class': 'place', 'placeholder': "Pays" }}) }}
 
         </div>
-
+        <input type="submit" value="Create"
+               class="btn btn-default pull-right" />
     </div>
+    <input type="submit" value="Validez vos tickets" class="btn btn-primary">
 {% endblock %}
 
 {% block body %}
@@ -68,41 +70,40 @@
 
     <hr/>
 
-    <div class="container">
+
     <h2>Commande de billet</h2>
-    {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
-
-    {{ form_errors(form) }}
-
-    <div class="form-group">
 
 
-        {{ form_widget(form.visitDate,  {'attr': {'class': 'place', 'placeholder': "Date de la visite" }}) }}
-        {{ form_errors(form.visitDate) }}
+    {% block _visit_entry_row %}
+        <div class="container">
+        <div class="form-row align-items-center" >
 
 
-        {{ form_widget(form.visitDate, {'attr': {'class': 'field'}}) }}
+        {{ form_row(form.visitDate,  {'attr': {'class': 'datepicker', 'placeholder': "Date de la visite" }}) }}
+
+        {{ form_row(form.visitDate, {'attr': {'class': 'datepicker'}}) }}
+
+        {{ form_row(form.alfDay,  {'attr': {'class': 'place', 'label': "Demi-journée" }}) }}
+
+        {{ form_row(form.alfDay, {'attr': {'class': 'field'}}) }}
+
+        {{ form_row(form.email,  {'attr': {'class': 'place', 'placeholder': "Email" }}) }}
+
+            <input type="submit" value="Create"
+                   class="btn btn-default pull-right" />
+
+        </div>
+
+        </div>
+
+    {% endblock %}
 
 
-        {{ form_label(form.alfDay, "Demi-journée") }}
-
-        {{ form_widget(form.alfDay,  {'attr': {'class': 'place', 'label': "Demi-journée" }}) }}
-        {{ form_errors(form.alfDay) }}
 
 
-        {{ form_widget(form.alfDay, {'attr': {'class': 'field'}}) }}
-
-        {{ form_widget(form.email,  {'attr': {'class': 'place', 'placeholder': "Email" }}) }}
-        {{ form_errors(form.email) }}
 
 
-        {{ form_widget(form.email, {'attr': {'class': 'field'}}) }}
 
-
-    </div>
-
-
-    <div class="form-group" id="ticket">
         <a href="#" id="add_ticket" class="btn btn-default">Ajouter un ticket</a>
 
         {#{{ form_row(form.tickets, {'attr': {'class': 'form-horizontal'}}) }}#}
@@ -162,14 +163,14 @@
 
         {#{{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}#}
         {#<input type="submit" value="Suivant" class="btn btn-primary">#}
-        {#<input type="submit" value="Validez vos tickets" class="btn btn-primary">#}
+
 
         {{ form_rest(form) }}
 
 
 
-
         {{ form_end(form) }}
+
         <br>
 
 
@@ -299,5 +300,6 @@
             });
 
         </script>
+
     </div>
 {% endblock body %}
